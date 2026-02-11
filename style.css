@@ -1,0 +1,535 @@
+/* CSS Variables from Color Palette */
+:root {
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text: #0B1220;
+  --color-text-muted: #475569;
+  --color-border: #CBD5E1;
+  --color-primary: #1E3A8A;
+  --color-secondary: #0F766E;
+  --color-accent: #C2410C;
+  --radius: 4px;
+  --shadow: 0 1px 3px rgba(11, 18, 32, 0.1), 0 1px 2px rgba(11, 18, 32, 0.06);
+  --space: 1rem;
+  --max-width: 72rem;
+}
+
+/* Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Swiss Typography - Strong Grid Rhythm */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space);
+  padding-right: var(--space);
+}
+
+/* Header Styles */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+}
+
+.site-name {
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.site-name:hover {
+  color: var(--color-secondary);
+}
+
+.site-name:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Navigation */
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space) * 1.5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+.main-nav a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: var(--space) 0;
+  margin-bottom: var(--space);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: '/';
+  margin-left: 0.5rem;
+  color: var(--color-border);
+}
+
+.breadcrumbs a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Main Content */
+main {
+  padding: calc(var(--space) * 2) 0 calc(var(--space) * 4);
+}
+
+article {
+  display: grid;
+  gap: calc(var(--space) * 3);
+}
+
+.page-header {
+  margin-bottom: var(--space);
+}
+
+.page-intro {
+  font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  color: var(--color-text-muted);
+  max-width: 65ch;
+}
+
+/* Headings - Swiss Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--space);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  margin-bottom: calc(var(--space) * 1.5);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  margin-top: calc(var(--space) * 2);
+  padding-bottom: calc(var(--space) * 0.5);
+  border-bottom: 2px solid var(--color-border);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+}
+
+/* Paragraphs and Text */
+p {
+  margin: 0 0 var(--space);
+  max-width: 70ch;
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+a:active {
+  color: var(--color-accent);
+}
+
+/* Glossary / Definition Lists */
+.glossary-list {
+  margin: var(--space) 0 calc(var(--space) * 2);
+  padding: 0;
+}
+
+.glossary-list dt {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: calc(var(--space) * 1.5);
+  margin-bottom: calc(var(--space) * 0.25);
+}
+
+.glossary-list dt:first-child {
+  margin-top: 0;
+}
+
+.glossary-list dd {
+  margin-left: 0;
+  padding-left: var(--space);
+  border-left: 3px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+/* Tables */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: var(--space) 0 calc(var(--space) * 2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+caption {
+  padding: var(--space);
+  font-weight: 700;
+  text-align: left;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+th, td {
+  padding: calc(var(--space) * 0.75) var(--space);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: var(--color-bg);
+}
+
+tbody tr:hover {
+  background-color: rgba(30, 58, 138, 0.05);
+}
+
+/* Blockquote */
+blockquote {
+  margin: calc(var(--space) * 2) 0;
+  padding: calc(var(--space) * 1.5);
+  padding-left: calc(var(--space) * 2);
+  border-left: 4px solid var(--color-accent);
+  background-color: rgba(248, 250, 252, 0.8);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  color: var(--color-text);
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 var(--space);
+  padding-left: calc(var(--space) * 1.5);
+}
+
+li {
+  margin-bottom: calc(var(--space) * 0.5);
+}
+
+li::marker {
+  color: var(--color-secondary);
+}
+
+/* Aside - Trusted References */
+.trusted-references {
+  margin-top: calc(var(--space) * 2);
+  padding: calc(var(--space) * 1.5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.trusted-references h3 {
+  margin-top: 0;
+  color: var(--color-secondary);
+  font-size: 1.125rem;
+}
+
+.trusted-references ul {
+  margin-bottom: 0;
+}
+
+/* FAQ Accordion Styles */
+.faq-section {
+  display: grid;
+  gap: var(--space);
+}
+
+.faq-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+  padding: calc(var(--space) * 1.25);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: '+';
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::before {
+  content: '−';
+}
+
+.faq-item summary:hover {
+  background-color: var(--color-bg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.faq-item summary h2 {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  font-weight: 600;
+}
+
+.faq-answer {
+  padding: 0 calc(var(--space) * 1.25) calc(var(--space) * 1.25);
+  padding-left: calc(var(--space) * 1.25 + 1.5rem + var(--space));
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-answer p:last-child,
+.faq-answer ul:last-child {
+  margin-bottom: 0;
+}
+
+.faq-cost-table {
+  margin-top: calc(var(--space) * 2);
+}
+
+.faq-cost-table h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: calc(var(--space) * 2) 0;
+  margin-top: auto;
+}
+
+.site-footer p {
+  margin: 0;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 768px) {
+  :root {
+    --space: 1.25rem;
+  }
+  
+  .container {
+    padding-left: calc(var(--space) * 2);
+    padding-right: calc(var(--space) * 2);
+  }
+  
+  article {
+    gap: calc(var(--space) * 4);
+  }
+  
+  .glossary-list dd {
+    padding-left: calc(var(--space) * 1.5);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --space: 1.5rem;
+  }
+  
+  /* Sticky table header */
+  .table-wrapper {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-bg);
+    box-shadow: inset 0 -1px 0 var(--color-border);
+  }
+  
+  .trusted-references {
+    max-width: 24rem;
+    float: right;
+    margin-left: calc(var(--space) * 2);
+    margin-bottom: var(--space);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .site-header,
+  .breadcrumbs,
+  .site-footer {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .table-wrapper {
+    overflow: visible;
+  }
+  
+  .faq-item[open] .faq-answer {
+    display: block;
+  }
+}
